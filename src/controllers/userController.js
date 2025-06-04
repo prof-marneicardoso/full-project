@@ -1,4 +1,4 @@
-import supabase from "../config/supabase";
+import supabase from "../config/supabase.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -11,7 +11,7 @@ const registerUser = async (request, response) => {
     const passwordHashed = await bcrypt.hash(senha, 10);
 
     // Abre a conexão com o Supabase (tabela Users)
-    const { data, error } = await supabase.from("users").insert([
+    const { error } = await supabase.from("users").insert([
         {
             nome,
             email,
