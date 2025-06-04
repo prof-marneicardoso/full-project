@@ -16,7 +16,7 @@ export default (request, response, next) => {
     
     } catch (error) {
         response.status(401).json({
-            mensagem: "Token não fornecido"
+            mensagem: "Token não fornecido:", error
         });
     }
 };
